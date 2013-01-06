@@ -10,21 +10,25 @@ class PostAdmin(admin.ModelAdmin):
     pass
 class PostInline(OrderableStackedInline):
     model = Post
+    ordering = ('inline_ordering_position',)
 
 class PlankAdmin(admin.ModelAdmin):
     pass
 class PlankInline(OrderableStackedInline):
     model = Plank
+    ordering = ('inline_ordering_position',)
 
 class LevelPostAdmin(admin.ModelAdmin):
     pass
 class LevelPostInline(OrderableStackedInline):
     model = LevelPost
+    ordering = ('inline_ordering_position',)
 
 class LevelPlankAdmin(admin.ModelAdmin):
     pass
 class LevelPlankInline(OrderableStackedInline):
     model = LevelPlank
+    ordering = ('inline_ordering_position',)
 
 class BridgeAdmin(admin.ModelAdmin):
     inlines = (PostInline, PlankInline)
@@ -33,6 +37,7 @@ class LevelAdmin(admin.ModelAdmin):
     inlines = (LevelPostInline, LevelPlankInline)
 class LevelInline(OrderableStackedInline):
     model = Level
+    ordering = ('inline_ordering_position',)
 
 class KitAdmin(admin.ModelAdmin):
     inlines = (LevelInline, )
