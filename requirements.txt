@@ -5,7 +5,7 @@ dj-database-url==0.2.1
 -e git://github.com/baldurthoremilsson/django-admin-jqueryui.git@a1056762b4fd635e62512a853721bf06e1ae154c#egg=django_admin_jqueryui-dev
 -e git://github.com/rawberg/django-cors.git@ce39702b9de289f13a930be986582c4863a4836f#egg=django_cors-dev
 django-extensions==1.0.2
-django-inline-ordering==1.0.2
+-e git://github.com/mikeedwards/django-inline-ordering.git@b52ce4690d34c1a8d846af0aa92abf6e8f1f4280#egg=django_inline_ordering-dev
 -e git://github.com/toastdriven/django-tastypie.git@32dae8d2590dde3122289118ac241ab0bd2452e8#egg=django_tastypie-dev
 gunicorn==0.17.0
 ipython==0.13.1
