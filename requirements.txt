@@ -2,13 +2,17 @@
 Django==1.4.3
 South==0.7.6
 dj-database-url==0.2.1
+-e git://github.com/baldurthoremilsson/django-admin-jqueryui.git@a1056762b4fd635e62512a853721bf06e1ae154c#egg=django_admin_jqueryui-dev
 -e git://github.com/rawberg/django-cors.git@ce39702b9de289f13a930be986582c4863a4836f#egg=django_cors-dev
 django-extensions==1.0.2
+django-inline-ordering==1.0.2
 -e git://github.com/toastdriven/django-tastypie.git@32dae8d2590dde3122289118ac241ab0bd2452e8#egg=django_tastypie-dev
 gunicorn==0.17.0
 ipython==0.13.1
+lxml==3.1beta1
 mimeparse==0.1.3
 psycopg2==2.4.6
 python-dateutil==1.5
+pytz==2012j
 readline==6.2.4.1
 wsgiref==0.1.2

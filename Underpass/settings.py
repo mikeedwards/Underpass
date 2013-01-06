@@ -121,6 +121,8 @@ INSTALLED_APPS = (
     'django_extensions',
     'tastypie',
     'south',
+    'admin_jqueryui',
+    'inline_ordering',
 
     'core',
 )
