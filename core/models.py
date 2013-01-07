@@ -16,6 +16,9 @@ class Level(TimeStampedModel, Orderable):
     kit = models.ForeignKey('Kit', related_name='levels')
     title = models.CharField(max_length=500)
 
+    class Meta(Orderable.Meta):
+        pass
+
     def __unicode__(self):
         return self.title
 
@@ -59,12 +62,18 @@ class LevelPlank(TimeStampedModel,Orderable):
     post_type = models.ForeignKey('PostType', related_name='level_planks')
     body = models.TextField(blank=True)
 
+    class Meta(Orderable.Meta):
+        pass
+
     def __unicode__(self):
         return self.post_type.title + ' plank'
 
 class LevelPost(TimeStampedModel,Orderable):
     level = models.ForeignKey('Level', related_name='posts')
     post_type = models.ForeignKey('PostType', related_name='level_posts')
+
+    class Meta(Orderable.Meta):
+        pass
 
     def __unicode__(self):
         return self.post_type.title + ' post'
@@ -74,12 +83,18 @@ class Plank(TimeStampedModel,Orderable):
     post_type = models.ForeignKey('PostType', related_name='planks')
     body = models.TextField(blank=True)
 
+    class Meta(Orderable.Meta):
+        pass
+
     def __unicode__(self):
         return self.post_type.title + ' plank'
 
 class Post(TimeStampedModel,Orderable):
     bridge = models.ForeignKey('Bridge', related_name='posts')
     post_type = models.ForeignKey('PostType', related_name='posts')
+
+    class Meta(Orderable.Meta):
+        pass
 
     def __unicode__(self):
         return self.post_type.title + ' post'
