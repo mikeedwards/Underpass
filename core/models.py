@@ -60,6 +60,7 @@ class PostType(TimeStampedModel):
 class LevelPlank(TimeStampedModel,Orderable):
     level = models.ForeignKey('Level', related_name='planks')
     post_type = models.ForeignKey('PostType', related_name='level_planks')
+    lane = models.IntegerField(default=1)
     body = models.TextField(blank=True)
 
     class Meta(Orderable.Meta):
@@ -71,6 +72,7 @@ class LevelPlank(TimeStampedModel,Orderable):
 class LevelPost(TimeStampedModel,Orderable):
     level = models.ForeignKey('Level', related_name='posts')
     post_type = models.ForeignKey('PostType', related_name='level_posts')
+    lane = models.IntegerField(default=1)
 
     class Meta(Orderable.Meta):
         pass
@@ -81,6 +83,7 @@ class LevelPost(TimeStampedModel,Orderable):
 class Plank(TimeStampedModel,Orderable):
     bridge = models.ForeignKey('Bridge', related_name='planks')
     post_type = models.ForeignKey('PostType', related_name='planks')
+    lane = models.IntegerField(default=1)
     body = models.TextField(blank=True)
 
     class Meta(Orderable.Meta):
@@ -92,6 +95,7 @@ class Plank(TimeStampedModel,Orderable):
 class Post(TimeStampedModel,Orderable):
     bridge = models.ForeignKey('Bridge', related_name='posts')
     post_type = models.ForeignKey('PostType', related_name='posts')
+    lane = models.IntegerField(default=1)
 
     class Meta(Orderable.Meta):
         pass
