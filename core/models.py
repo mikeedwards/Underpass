@@ -7,6 +7,7 @@ from inline_ordering.models import Orderable
 # Create your models here.
 class Kit(TimeStampedModel):
     title = models.CharField(max_length=500)
+    description = models.TextField(blank=True)
     user = models.ForeignKey(User, related_name='kits')
 
     def __unicode__(self):
@@ -14,6 +15,7 @@ class Kit(TimeStampedModel):
 
 class Level(TimeStampedModel, Orderable):
     kit = models.ForeignKey('Kit', related_name='levels')
+    description = models.TextField(blank=True)
     title = models.CharField(max_length=500)
 
     class Meta(Orderable.Meta):
