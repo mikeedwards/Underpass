@@ -4,7 +4,7 @@ from models import Kit, Level, Bridge, PostType, LevelPost, LevelPlank, \
     Post, Plank
 
 class PostTypeAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('title', 'description',)
 
 class PostAdmin(admin.ModelAdmin):
     pass
@@ -34,12 +34,16 @@ class BridgeAdmin(admin.ModelAdmin):
     inlines = (PostInline, PlankInline)
 
 class LevelAdmin(admin.ModelAdmin):
+    fields = ('kit', 'title', 'description',)
+    list_display = ('title', 'kit', 'description',)
     inlines = (LevelPostInline, LevelPlankInline)
 class LevelInline(OrderableStackedInline):
     model = Level
+    fields = ['title', 'description',]
     ordering = ('inline_ordering_position',)
 
 class KitAdmin(admin.ModelAdmin):
+    list_display = ('title', 'description',)
     inlines = (LevelInline, )
 
 admin.site.register(PostType, PostTypeAdmin)
