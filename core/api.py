@@ -62,7 +62,7 @@ class KitResource(ModelResource):
     class Meta:
         queryset = Kit.objects.all()
         resource_name = 'kit'
-        fields = ['id', 'title']
+        fields = ['id', 'title', 'description']
 
 class LevelResource(ModelResource):
     kit = fields.ForeignKey(KitResource, 'kit')
@@ -72,7 +72,7 @@ class LevelResource(ModelResource):
     class Meta:
         queryset = Level.objects.all()
         resource_name = 'level'
-        fields = ['id', 'title']
+        fields = ['id', 'title', 'description']
 
 class BridgeResource(ModelResource):
     user = fields.ForeignKey(UserResource, 'user')
