@@ -123,6 +123,7 @@ INSTALLED_APPS = (
     'south',
     'admin_jqueryui',
     'inline_ordering',
+    'gunicorn',
 
     'core',
 )
