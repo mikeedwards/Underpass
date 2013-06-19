@@ -7,6 +7,7 @@ from inline_ordering.models import Orderable
 # Create your models here.
 class Kit(TimeStampedModel):
     title = models.CharField(max_length=500)
+    description = models.TextField(blank=True)
     user = models.ForeignKey(User, related_name='kits')
 
     def __unicode__(self):
@@ -14,7 +15,11 @@ class Kit(TimeStampedModel):
 
 class Level(TimeStampedModel, Orderable):
     kit = models.ForeignKey('Kit', related_name='levels')
+    description = models.TextField(blank=True)
     title = models.CharField(max_length=500)
+
+    class Meta(Orderable.Meta):
+        pass
 
     def __unicode__(self):
         return self.title
@@ -57,7 +62,11 @@ class PostType(TimeStampedModel):
 class LevelPlank(TimeStampedModel,Orderable):
     level = models.ForeignKey('Level', related_name='planks')
     post_type = models.ForeignKey('PostType', related_name='level_planks')
+    lane = models.IntegerField(default=1)
     body = models.TextField(blank=True)
+
+    class Meta(Orderable.Meta):
+        pass
 
     def __unicode__(self):
         return self.post_type.title + ' plank'
@@ -65,6 +74,10 @@ class LevelPlank(TimeStampedModel,Orderable):
 class LevelPost(TimeStampedModel,Orderable):
     level = models.ForeignKey('Level', related_name='posts')
     post_type = models.ForeignKey('PostType', related_name='level_posts')
+    lane = models.IntegerField(default=1)
+
+    class Meta(Orderable.Meta):
+        pass
 
     def __unicode__(self):
         return self.post_type.title + ' post'
@@ -72,7 +85,11 @@ class LevelPost(TimeStampedModel,Orderable):
 class Plank(TimeStampedModel,Orderable):
     bridge = models.ForeignKey('Bridge', related_name='planks')
     post_type = models.ForeignKey('PostType', related_name='planks')
+    lane = models.IntegerField(default=1)
     body = models.TextField(blank=True)
+
+    class Meta(Orderable.Meta):
+        pass
 
     def __unicode__(self):
         return self.post_type.title + ' plank'
@@ -80,6 +97,10 @@ class Plank(TimeStampedModel,Orderable):
 class Post(TimeStampedModel,Orderable):
     bridge = models.ForeignKey('Bridge', related_name='posts')
     post_type = models.ForeignKey('PostType', related_name='posts')
+    lane = models.IntegerField(default=1)
+
+    class Meta(Orderable.Meta):
+        pass
 
     def __unicode__(self):
         return self.post_type.title + ' post'

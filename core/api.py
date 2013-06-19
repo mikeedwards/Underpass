@@ -26,7 +26,7 @@ class LevelPostResource(ModelResource):
     class Meta:
         queryset = LevelPost.objects.all()
         resource_name = 'level_post'
-        fields = ['id',]
+        fields = ['id', 'lane']
 
 class LevelPlankResource(ModelResource):
     level = fields.ForeignKey('core.api.LevelResource', 'level')
@@ -35,7 +35,7 @@ class LevelPlankResource(ModelResource):
     class Meta:
         queryset = LevelPlank.objects.all()
         resource_name = 'level_plank'
-        fields = ['id', 'body']
+        fields = ['id', 'lane', 'body']
 
 class PostResource(ModelResource):
     bridge = fields.ForeignKey('core.api.BridgeResource', 'bridge')
@@ -44,7 +44,7 @@ class PostResource(ModelResource):
     class Meta:
         queryset = Post.objects.all()
         resource_name = 'post'
-        fields = ['id',]
+        fields = ['id', 'lane']
 
 class PlankResource(ModelResource):
     bridge = fields.ForeignKey('core.api.BridgeResource', 'bridge')
@@ -53,7 +53,7 @@ class PlankResource(ModelResource):
     class Meta:
         queryset = Plank.objects.all()
         resource_name = 'plank'
-        fields = ['id', 'body']
+        fields = ['id', 'lane', 'body']
 
 class KitResource(ModelResource):
     user = fields.ForeignKey(UserResource, 'user')
@@ -62,7 +62,7 @@ class KitResource(ModelResource):
     class Meta:
         queryset = Kit.objects.all()
         resource_name = 'kit'
-        fields = ['id', 'title']
+        fields = ['id', 'title', 'description']
 
 class LevelResource(ModelResource):
     kit = fields.ForeignKey(KitResource, 'kit')
@@ -72,7 +72,7 @@ class LevelResource(ModelResource):
     class Meta:
         queryset = Level.objects.all()
         resource_name = 'level'
-        fields = ['id', 'title']
+        fields = ['id', 'title', 'description']
 
 class BridgeResource(ModelResource):
     user = fields.ForeignKey(UserResource, 'user')

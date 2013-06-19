@@ -295,7 +295,7 @@ class ApiTest(ResourceTestCase):
             format='json')
 
         self.assertKeys(self.deserialize(response), 
-            ['id', 'post_type', 'level', 'resource_uri'])
+            ['id', 'lane', 'post_type', 'level', 'resource_uri'])
 
     def test_level_plank_resource_exists(self):
         """
@@ -322,7 +322,7 @@ class ApiTest(ResourceTestCase):
             format='json')
 
         self.assertKeys(self.deserialize(response), 
-            ['id', 'body', 'post_type', 'level', 'resource_uri'])
+            ['id', 'lane', 'body', 'post_type', 'level', 'resource_uri'])
 
     def test_post_resource_exists(self):
         """
@@ -349,7 +349,7 @@ class ApiTest(ResourceTestCase):
             format='json')
 
         self.assertKeys(self.deserialize(response), 
-            ['id', 'post_type', 'bridge', 'resource_uri'])
+            ['id', 'lane', 'post_type', 'bridge', 'resource_uri'])
 
     def test_plank_resource_exists(self):
         """
@@ -376,4 +376,4 @@ class ApiTest(ResourceTestCase):
             format='json')
 
         self.assertKeys(self.deserialize(response), 
-            ['id', 'body', 'post_type', 'bridge', 'resource_uri'])
+            ['id', 'lane', 'body', 'post_type', 'bridge', 'resource_uri'])
